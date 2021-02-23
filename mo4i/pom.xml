@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>uk.ac.ncl.stanley.a</groupId>
+  <artifactId>mo4i</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>mo4i</name>
+  
+  <dependencies>
+  
+  	<dependency>
+    	<groupId>org.uma.jmetal</groupId>
+    	<artifactId>jmetal-core</artifactId>
+    	<version>5.10</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.uma.jmetal</groupId>
+	    <artifactId>jmetal-algorithm</artifactId>
+	    <version>5.10</version>
+	</dependency>
+	
+	<dependency>
+		  <groupId>org.uma.jmetal</groupId>
+		  <artifactId>jmetal-example</artifactId>
+		  <version>5.10</version>
+	</dependency>
+	
+  </dependencies>
+</project>
