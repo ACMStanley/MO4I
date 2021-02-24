@@ -12,7 +12,7 @@ import java.util.Comparator;
  *     <p>This class implements a comparator based on the rank of the solutions.
  */
 @SuppressWarnings("serial")
-public class ReverseRankingComparator<S extends Solution<?>> implements Comparator<S>, Serializable {
+public class MyRankingComparator<S extends Solution<?>> implements Comparator<S>, Serializable {
   private Ranking<S> ranking = new DominanceRanking<S>();
 
   /**
@@ -46,9 +46,6 @@ public class ReverseRankingComparator<S extends Solution<?>> implements Comparat
       }
 
       result = Integer.compare(rank1, rank2);
-      if(result != 0) {
-    	  result = -result;
-      }
     }
 
     return result;

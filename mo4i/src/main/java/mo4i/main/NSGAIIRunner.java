@@ -52,7 +52,7 @@ public class NSGAIIRunner extends AbstractAlgorithmRunner {
       //problemName = args[0];
       //referenceParetoFront = args[1];
     //} else {
-      problemName = "mo4i.main.INTOCPSProblem";
+      problemName = "org.uma.jmetal.problem.multiobjective.Kursawe";//"mo4i.main.INTOCPSProblem";
       referenceParetoFront = "";//"resources/referenceFrontsCSV/ZDT1.csv";
     //}
 
@@ -66,7 +66,7 @@ public class NSGAIIRunner extends AbstractAlgorithmRunner {
     double mutationDistributionIndex = 20.0;
     mutation = new PolynomialMutation(mutationProbability, mutationDistributionIndex);
 
-    selection = new BinaryTournamentSelection<DoubleSolution>(new ReverseRankingComparator<DoubleSolution>());
+    selection = new BinaryTournamentSelection<DoubleSolution>(new MyRankingComparator<DoubleSolution>());
 
     int populationSize = 100 ;
     algorithm = new NSGAIIBuilder<>(problem, crossover, mutation, populationSize)
