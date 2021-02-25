@@ -20,9 +20,9 @@
 	</dependency>
 	
 	<dependency>
-		  <groupId>org.uma.jmetal</groupId>
-		  <artifactId>jmetal-example</artifactId>
-		  <version>5.10</version>
+	    <groupId>org.uma.jmetal</groupId>
+	    <artifactId>jmetal-lab</artifactId>
+	    <version>5.10</version>
 	</dependency>
 	
   </dependencies>

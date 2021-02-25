@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-02-24T18:30:50.109413Z</date>
+  <millis>1614191450109</millis>
+  <nanos>413000</nanos>
+  <sequence>0</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.JMetalLogger</class>
+  <method>configureLoggers</method>
+  <thread>1</thread>
+  <message>Loggers configured with null</message>
+</record>
+<record>
+  <date>2021-02-24T18:30:50.131329700Z</date>
+  <millis>1614191450131</millis>
+  <nanos>329700</nanos>
+  <sequence>1</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.AbstractAlgorithmRunner</class>
+  <method>printFinalSolutionSet</method>
+  <thread>1</thread>
+  <message>Random seed: 1614191449612</message>
+</record>
+<record>
+  <date>2021-02-24T18:30:50.131329700Z</date>
+  <millis>1614191450131</millis>
+  <nanos>329700</nanos>
+  <sequence>2</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.AbstractAlgorithmRunner</class>
+  <method>printFinalSolutionSet</method>
+  <thread>1</thread>
+  <message>Objectives values have been written to file FUN.tsv</message>
+</record>
+<record>
+  <date>2021-02-24T18:30:50.131329700Z</date>
+  <millis>1614191450131</millis>
+  <nanos>329700</nanos>
+  <sequence>3</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.AbstractAlgorithmRunner</class>
+  <method>printFinalSolutionSet</method>
+  <thread>1</thread>
+  <message>Variables values have been written to file VAR.tsv</message>
+</record>
+</log>

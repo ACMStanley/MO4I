@@ -7,6 +7,7 @@ import org.uma.jmetal.problem.doubleproblem.impl.AbstractDoubleProblem;
 import org.uma.jmetal.solution.doublesolution.DoubleSolution;
 
 import Evaluators.BasicSystem;
+import util.ReverseCoupler;
 
 public class INTOCPSProblem extends AbstractDoubleProblem{
 	
@@ -14,7 +15,7 @@ public class INTOCPSProblem extends AbstractDoubleProblem{
 		setNumberOfVariables(3);
 	    setNumberOfObjectives(2);
 	    setName("INTOCPSProblem");
-
+	    
 	    List<Double> lowerLimit = new ArrayList<>(getNumberOfVariables()) ;
 	    List<Double> upperLimit = new ArrayList<>(getNumberOfVariables()) ;
 
@@ -29,8 +30,8 @@ public class INTOCPSProblem extends AbstractDoubleProblem{
 	@Override
 	public void evaluate(DoubleSolution solution) {
 		double[] objectives = BasicSystem.evaluate(solution);
-		
-		solution.setObjective(0,objectives[0]);
-		solution.setObjective(1,objectives[1]);
+		solution.setObjective(0,(ReverseCoupler.maximiseObjective[0] ? -1 : 1) * objectives[0]);
+		solution.setObjective(1,(ReverseCoupler.maximiseObjective[1] ? -1 : 1) * objectives[1]);
 	}
+	
 }
