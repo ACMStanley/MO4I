@@ -19,10 +19,7 @@ public class Main {
 		active = true;
 		printHeader();
 		UIHandler ui = new UIHandler();
-		while(active) {
-			Action a = ui.getAction();
-			a.execute();
-		}
+		ui.start();
 	}
 	
 	public static void printHeader() {

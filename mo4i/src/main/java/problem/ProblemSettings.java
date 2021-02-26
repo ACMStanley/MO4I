@@ -1,9 +1,7 @@
-package util;
+package problem;
 
-import problem.INTOCPSProblem;
-
-public class ReverseCoupler {
-	public static boolean[] maximiseObjective;
+public class ProblemSettings {
+	private static boolean[] maximiseObjective;
 	private static INTOCPSProblem problem;
 	private static boolean problemSet = false;
 	
@@ -23,7 +21,10 @@ public class ReverseCoupler {
 		maximiseObjective[index] = maximise;
 	}
 	
-	public static boolean[] getMinMax(){
-		return maximiseObjective;
+	public static boolean getMinOrMax(int index){
+		if(index < 1 || index > maximiseObjective.length - 1) {
+			throw new IllegalArgumentException();
+		}
+		return maximiseObjective[index];
 	}
 }
