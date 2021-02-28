@@ -21,7 +21,10 @@ public class ProblemSettings {
 		maximiseObjective[index] = maximise;
 	}
 	
-	public static boolean[] getMinOrMax(){
-		return maximiseObjective;
+	public static boolean getMinOrMax(int index){
+		if(index < 1 || index > maximiseObjective.length - 1) {
+			throw new IllegalArgumentException();
+		}
+		return maximiseObjective[index];
 	}
 }

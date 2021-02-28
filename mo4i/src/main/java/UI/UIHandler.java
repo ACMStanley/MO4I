@@ -1,11 +1,10 @@
 package UI;
 
 import java.util.Arrays;
-import algorithms.AlgorithmEnum;
+import algorithms.AllAlgorithms;
 import java.util.Scanner;
 
 import algorithms.NSGAII;
-import mo4i.main.RunSettings;
 import problem.INTOCPSProblem;
 
 public class UIHandler {
@@ -61,24 +60,11 @@ public class UIHandler {
 	}
 	
 	private void select() {
-		for(int i = 0; i < AlgorithmEnum.values().length - 1; i++) {
-			System.out.println("[" + i + "] " + AlgorithmEnum.values()[i]);
+		for(int i = 0; i < AllAlgorithms.values().length - 1; i++) {
+			System.out.println("[" + i + "] " + AllAlgorithms.values()[i]);
 		}
 		
-		boolean validChoice = false;
-		int choice = 0;
-		
-		while(!validChoice) {
-			try {
-				choice = Integer.parseInt(getInput());
-				validChoice = true;
-			}
-			catch(Exception e) {
-				System.out.println("Invalid choice!");
-			}
-		}
-		
-		
+		//MISSING CODE
 		
 	}
 	
