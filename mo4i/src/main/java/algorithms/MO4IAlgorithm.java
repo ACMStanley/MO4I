@@ -1,5 +1,5 @@
 package algorithms;
-import problem.INTOCPSProblem;
+import mo4i.main.INTOCPSProblem;
 import util.FrontAdjuster;
 import util.ReverseCoupler;
 
