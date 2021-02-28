@@ -1,16 +1,14 @@
 package algorithms;
 import problem.INTOCPSProblem;
+import problem.ProblemSettings;
 import util.FrontAdjuster;
-import util.ReverseCoupler;
 
 public abstract class MO4IAlgorithm {
 	
-	INTOCPSProblem problem;
+	protected abstract void runAlgorithm(INTOCPSProblem problem);
 	
-	public abstract void runAlgorithm();
-	
-	public final void run() {
-		runAlgorithm();
-		FrontAdjuster.flipFront(ReverseCoupler.getMinMax());
+	public final void run(INTOCPSProblem problem) {
+		runAlgorithm(problem);
+		FrontAdjuster.flipFront(ProblemSettings.getMinOrMax());
 	}
 }

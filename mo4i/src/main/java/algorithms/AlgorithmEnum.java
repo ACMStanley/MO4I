@@ -1,5 +1,5 @@
 package algorithms;
 
-public enum AllAlgorithms {
+public enum AlgorithmEnum {
 	NSGAII
 }
