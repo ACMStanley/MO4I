@@ -35,10 +35,10 @@ public class NSGAII extends MO4IAlgorithm{
     
     int populationSize;
     
-	
-    public void runAlgorithm(INTOCPSProblem problem) throws JMetalException{
-	  
-	  	crossoverProbability = 0.9;
+	public NSGAII(INTOCPSProblem problem) {
+		this.problem = problem;
+		
+		crossoverProbability = 0.9;
 		crossoverDistributionIndex = 20.0;
 	    crossover = new SBXCrossover(crossoverProbability, crossoverDistributionIndex);
 		  
@@ -49,8 +49,10 @@ public class NSGAII extends MO4IAlgorithm{
 	    selection = new BinaryTournamentSelection<DoubleSolution>(new RankingAndCrowdingDistanceComparator<DoubleSolution>());
 	    
 	    populationSize = 100;
-	    
-	    algorithm = new NSGAIIBuilder<>(problem, crossover, mutation, populationSize)
+	}
+	
+  public void runAlgorithm() throws JMetalException{
+    algorithm = new NSGAIIBuilder<>(problem, crossover, mutation, populationSize)
             .setSelectionOperator(selection)
             .setMaxEvaluations(25000)
             .build();

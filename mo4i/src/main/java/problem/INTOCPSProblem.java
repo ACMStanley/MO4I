@@ -11,8 +11,6 @@ import util.ReverseCoupler;
 
 public class INTOCPSProblem extends AbstractDoubleProblem{
 	
-	private static boolean[] maximiseObjective;
-	
 	public INTOCPSProblem(int noOfVars, int noOfObjectives, List<Double> lowerLimits, List<Double> upperLimits) {
 		if(noOfVars < 1) {
 			throw new IllegalArgumentException("Number of variables must be greater than 0!");
@@ -37,15 +35,11 @@ public class INTOCPSProblem extends AbstractDoubleProblem{
 	    setVariableBounds(lowerLimits, upperLimits);
 	}
 	
-	public boolean[] getMinOrMax(){
-		return maximiseObjective;
-	}
-	
 	@Override
 	public void evaluate(DoubleSolution solution) {
 		double[] objectives = BasicSystem.evaluate(solution);
 		for(int i = 0; i < getNumberOfObjectives(); i++) {
-			solution.setObjective(0,(ProblemSettings.getMinOrMax()[i] ? -1 : 1) * objectives[i]);
+			solution.setObjective(0,(ProblemSettings.getMinOrMax(i) ? -1 : 1) * objectives[i]);
 		}
 	}
 	
