@@ -3,11 +3,10 @@ package UI;
 import java.util.Arrays;
 import java.util.Scanner;
 import Actions.Action;
-import Actions.AlgorithmAction;
 import Actions.ExitAction;
+import Actions.RunAction;
 import Actions.SelectAction;
 import algorithms.NSGAII;
-import mo4i.main.INTOCPSProblem;
 
 public class UIHandler {
 	
@@ -53,7 +52,7 @@ public class UIHandler {
 				break;
 				
 			case "run":
-				a = new AlgorithmAction();
+				a = new RunAction();
 				break;
 				
 			case "select":

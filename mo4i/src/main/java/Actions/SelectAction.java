@@ -5,6 +5,7 @@ import java.util.List;
 
 import UI.UIHandler;
 import algorithms.AllAlgorithms;
+import mo4i.main.Client;
 
 public class SelectAction implements Action{
 	
@@ -41,7 +42,7 @@ public class SelectAction implements Action{
 			}
 		}while(!inputValid);
 		
-		ActionSettings.selectedAlg = algs.get(choice);
+		Client.getRunHandler().setAlgorithm(AllAlgorithms.values()[choice]);
 	}
 	
 	private void displayChoices() {

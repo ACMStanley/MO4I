@@ -1,5 +1,6 @@
 package algorithms;
 
 public enum AllAlgorithms {
-	NSGAII
+	NSGAII,
+	SPEA2
 }
