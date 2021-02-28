@@ -16,7 +16,7 @@ import org.uma.jmetal.util.comparator.RankingAndCrowdingDistanceComparator;
 import org.uma.jmetal.util.fileoutput.SolutionListOutput;
 import org.uma.jmetal.util.fileoutput.impl.DefaultFileOutputContext;
 
-import problem.INTOCPSProblem;
+import mo4i.main.INTOCPSProblem;
 import util.DirectorySettings;
 import java.util.List;
 

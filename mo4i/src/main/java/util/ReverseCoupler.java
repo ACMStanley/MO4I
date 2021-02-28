@@ -1,6 +1,6 @@
 package util;
 
-import problem.INTOCPSProblem;
+import mo4i.main.INTOCPSProblem;
 
 public class ReverseCoupler {
 	public static boolean[] maximiseObjective;
@@ -13,9 +13,9 @@ public class ReverseCoupler {
 		maximiseObjective = new boolean[problem.getNumberOfObjectives()];
 	}
 	
-	public static void setToMaximiseObjective(int index, boolean maximise){
+	public static void setToMaximiseObjective(int index, boolean maximise) throws Exception {
 		if(!problemSet) {
-			throw new NullPointerException("Problem is not set!");
+			throw new Exception("Problem is not set!");
 		}
 		if(index >= problem.getNumberOfObjectives() || index < 0) {
 			throw new IllegalArgumentException("Index is out of bounds!");

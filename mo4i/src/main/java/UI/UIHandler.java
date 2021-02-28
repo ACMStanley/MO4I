@@ -1,75 +1,68 @@
 package UI;
 
 import java.util.Arrays;
-import algorithms.AllAlgorithms;
 import java.util.Scanner;
-
+import Actions.Action;
+import Actions.AlgorithmAction;
+import Actions.ExitAction;
+import Actions.SelectAction;
 import algorithms.NSGAII;
-import problem.INTOCPSProblem;
+import mo4i.main.INTOCPSProblem;
 
 public class UIHandler {
 	
 	private Scanner input;
 	
-	private boolean active;
+	private static final String[] commands = {"exit","run","select"};
 	
-	private static final String[] COMMANDS = {"exit","run","select"};
-	
-	public void start() {
-		active = true;
-		String command;
-		while(active) {
-			command = getCommand();
-		}
+	public Action getAction() {
+		return getCommand();
 	}
 	
-	private String getCommand() {
+	private Action getCommand() {
 		String command;
+		boolean commandValid;
 		do {
-			command = getInput();
-			if(!isValidCommand(command)) {
-				System.out.println("\'" + command + "\' is not a recognised command.");
+			input = new Scanner(System.in);
+			System.out.print(UIUtils.INPUTPOINTER);
+			command = input.next();
+			commandValid = isValidCommand(command);
+			if(!commandValid) {
+				System.out.println("Command \'" + command + "\' not recognised.");
 			}
-		} while(!isValidCommand(command));
-		return command;
+		}while(!commandValid);
+		
+		return resolveCommand(command);
 	}
 	
 	private static boolean isValidCommand(String command) {
-		return Arrays.asList(COMMANDS).contains(command);
+		return Arrays.asList(commands).contains(command);
 	}
 	
-	private String getInput() {
+	public String getInput() {
 		input = new Scanner(System.in);
 		System.out.print(UIUtils.INPUTPOINTER);
 		return input.next();
 	}
 	
-	private void executeCommand(String command) {
+	private Action resolveCommand(String command) {
+		Action a;
 		switch(command) {
 			case "exit":
-				exit();
+				a =  new ExitAction();
+				break;
+				
+			case "run":
+				a = new AlgorithmAction();
 				break;
 				
 			case "select":
-				select();
+				a = new SelectAction(this);
+				break;
+				
+			default:
+				throw new IllegalArgumentException("Invalid Command!");
 		}
+		return a;
 	}
-	
-	private void exit() {
-		setActive(false);
-	}
-	
-	private void select() {
-		for(int i = 0; i < AllAlgorithms.values().length - 1; i++) {
-			System.out.println("[" + i + "] " + AllAlgorithms.values()[i]);
-		}
-		
-		//MISSING CODE
-		
-	}
-	
-	private void setActive(boolean active) {
-		this.active = active;
-	}
-	
 }
