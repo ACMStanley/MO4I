@@ -46,9 +46,11 @@ public class SelectAction implements Action{
 	}
 	
 	private void displayChoices() {
+		System.out.println();
 		for(int i = 0; i < algs.size(); i++) {
-			System.out.println("[" + i + "] " + algs.get(i).name());
+			System.out.println("  [" + i + "] " + algs.get(i).name());
 		}
+		System.out.println();
 	}
 
 }

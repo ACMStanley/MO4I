@@ -3,6 +3,10 @@ package mo4i.main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,6 +17,7 @@ import UI.UIHandler;
 import UI.UIUtils;
 import algorithms.AllAlgorithms;
 import problem.ProblemSettings;
+import util.DirectorySettings;
 
 public class Client {
 	private static boolean active;
@@ -25,6 +30,7 @@ public class Client {
 	}
 
 	public static void main(String[] args) throws JMetalException, FileNotFoundException {
+		
 		active = true;
 		runHandler = new RunHandler();
 		problemSettings = new ProblemSettings();
@@ -71,5 +77,22 @@ public class Client {
 	
 	public static void quit() {
 		active = false;
+	}
+	
+	private static void makeOutputDirectory() {
+		try {
+
+		    Path path = Paths.get(DirectorySettings.dataOutPath);
+
+		    //java.nio.file.Files;
+		    Files.createDirectories(path);
+
+		    System.out.println("Directory is created!");
+
+		  } catch (IOException e) {
+
+		    System.err.println("Failed to create directory!" + e.getMessage());
+
+		  }
 	}
 }

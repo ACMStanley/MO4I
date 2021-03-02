@@ -1,7 +1,7 @@
 package util;
 
 public class DirectorySettings {
-	public static String dataOutPath = "";
+	public static String dataOutPath = "../output/";
 	
 	public static final String FRONT_FILE_NAME = "FUN.CSV";
 	

@@ -40,7 +40,6 @@ public abstract class MO4IAlgorithm {
 	}
 	
 	public void printFinalSolutionSet(List<? extends Solution<?>> population) {
-
 	    new SolutionListOutput(population)
 	        .setVarFileOutputContext(new DefaultFileOutputContext(DirectorySettings.getVariablesPath(), ","))
 	        .setFunFileOutputContext(new DefaultFileOutputContext(DirectorySettings.getFrontPath(), ","))
