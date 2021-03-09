@@ -58,9 +58,13 @@ public class Client {
 		
 		printHeader();
 		UIHandler ui = new UIHandler();
-		while(active) {
-			Action a = ui.getAction();
-			a.execute();
+		try {
+			while(active) {
+				Action a = ui.getAction();
+				a.execute();
+			}
+		} catch(Exception e) {
+			
 		}
 	}
 	

@@ -11,7 +11,7 @@ public class BasicSystem {
 	public static double[] evaluate(double x, double y, double z) {
 		
 		double objective1 = (x + y - z);
-		double objective2 = (x + y - z);
+		double objective2 = (x - y - z);
 		
 		double[] objectives = {objective1,objective2};
 		
