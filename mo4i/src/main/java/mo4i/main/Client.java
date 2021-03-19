@@ -16,6 +16,7 @@ import Actions.Action;
 import UI.UIHandler;
 import UI.UIUtils;
 import algorithms.AllAlgorithms;
+import link.Link;
 import problem.ProblemSettings;
 import util.DirectorySettings;
 
@@ -23,6 +24,7 @@ public class Client {
 	private static boolean active;
 	private static RunHandler runHandler;
 	private static ProblemSettings problemSettings;
+	private static Link link;
 	
 
 	public static ProblemSettings getProblemSettings() {
@@ -31,29 +33,35 @@ public class Client {
 
 	public static void main(String[] args) throws JMetalException, FileNotFoundException {
 		
-		active = true;
+		link = new Link();
+		problemSettings = new ProblemSettings(link);
 		runHandler = new RunHandler();
-		problemSettings = new ProblemSettings();
+		active = true;
 		
 		runHandler.setAlgorithm(AllAlgorithms.NSGAII);
 		
 		List<Double> lowerLimits = new ArrayList<Double>();
 		List<Double> upperLimits = new ArrayList<Double>();
 		
-		lowerLimits.add(0.0);
-		lowerLimits.add(0.0);
+		lowerLimits.add(0.01);
+		lowerLimits.add(-0.05);
 		lowerLimits.add(0.0);
 		
-		upperLimits.add(1.0);
-		upperLimits.add(1.0);
-		upperLimits.add(1.0);
+		upperLimits.add(0.25);
+		upperLimits.add(0.0);
+		upperLimits.add(0.05);
 		
-		problemSettings.setNumberOfVars(3)
-						.setNumberOfObjectives(2)
-						.setLowerVarLimits(lowerLimits)
-						.setUpperVarLimits(upperLimits)
-						.setToMaximiseObjective(0, true)
-						.setToMaximiseObjective(1, true);
+		problemSettings
+		
+					.addVar("{bodyFMU}.body.axle_half_width")
+					.addVar("{sensorFMU}.sensor1.lf_position_x")
+					.addVar("{sensorFMU}.sensor2.lf_position_x")
+					.addObjective("{bodyFMU}.body.robot_x")
+					.addObjective("{bodyFMU}.body.robot_y")
+					.setLowerVarLimits(lowerLimits)
+					.setUpperVarLimits(upperLimits)
+					.setToMaximiseObjective(0, true)
+					.setToMaximiseObjective(1, true);
 		
 		
 		printHeader();
@@ -64,7 +72,7 @@ public class Client {
 				a.execute();
 			}
 		} catch(Exception e) {
-			
+
 		}
 	}
 	

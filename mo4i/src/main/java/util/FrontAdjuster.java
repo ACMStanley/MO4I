@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FrontAdjuster {
-	public static double[][] flipFront(boolean[] maximiseObjective) {
+	public static double[][] flipFront(List<Boolean> maximiseObjective) {
 		File FUNFile = new File(DirectorySettings.getFrontPath());
 		Scanner FUNScanner = null;
 		List<List<Double>> points = new ArrayList<List<Double>>();
@@ -39,11 +39,11 @@ public class FrontAdjuster {
 		double[][] front = ListsToMatrix.listsToMatrix(points);
 		
 		for(double[] d : front) {
-			d[0] = (maximiseObjective[0] ? -1 : 1)* d[0];
+			d[0] = (maximiseObjective.get(0) ? -1 : 1)* d[0];
 			double firstValue = d[0];
 			String lineToWrite = Double.toString(firstValue);
 			for(int i = 1; i < d.length; i++) {
-				d[i] = (maximiseObjective[0] ? -1 : 1)* d[i];
+				d[i] = (maximiseObjective.get(i) ? -1 : 1)* d[i];
 				lineToWrite = new String(lineToWrite + "," + d[i]);
 			}
 			writer.println(lineToWrite);
