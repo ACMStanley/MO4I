@@ -21,15 +21,15 @@ public class MO4IProblem extends AbstractDoubleProblem{
 	
 	@Override
 	public void evaluate(DoubleSolution solution) {
-		//long startTime = System.currentTimeMillis();
+		long startTime = System.currentTimeMillis();
 		
 		double[] objectives = Client.getProblemSettings().calculateObjective(solution.getVariables());
 		for(int i = 0; i < Client.getProblemSettings().getNumberOfObjectives(); i++) {
 			solution.setObjective(i,(Client.getProblemSettings().getMinMax().get(i) ? -1 : 1) * objectives[i]);
 		}
 		
-		//long endTime = System.currentTimeMillis();
-		//System.out.println("Iteration completed in: " + Long.toString(endTime - startTime) + "ms.");
+		long endTime = System.currentTimeMillis();
+		System.out.println("Iteration completed in: " + Long.toString(endTime - startTime) + "ms.");
 	}
 	
 }

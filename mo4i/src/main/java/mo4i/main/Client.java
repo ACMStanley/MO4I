@@ -32,7 +32,6 @@ public class Client {
 	}
 
 	public static void main(String[] args) throws JMetalException, FileNotFoundException {
-		
 		link = new Link();
 		problemSettings = new ProblemSettings(link);
 		runHandler = new RunHandler();
