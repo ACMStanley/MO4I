@@ -4,17 +4,17 @@ import java.util.Arrays;
 import java.util.List;
 
 import UI.UIHandler;
-import algorithms.AllAlgorithms;
+import algorithms.AlgorithmVariant;
 import mo4i.main.Client;
 
 public class SelectAction implements Action{
 	
 	private UIHandler ui;
-	List<AllAlgorithms> algs;
+	List<AlgorithmVariant> algs;
 	
 	public SelectAction(UIHandler ui){
 		this.ui = ui;
-		algs = Arrays.asList(AllAlgorithms.values());
+		algs = Arrays.asList(AlgorithmVariant.values());
 	}
 	
 	@Override
@@ -42,7 +42,7 @@ public class SelectAction implements Action{
 			}
 		}while(!inputValid);
 		
-		Client.getRunHandler().setAlgorithm(AllAlgorithms.values()[choice]);
+		Client.getRunHandler().setAlgorithm(AlgorithmVariant.values()[choice]);
 	}
 	
 	private void displayChoices() {

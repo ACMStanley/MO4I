@@ -33,14 +33,24 @@ public class Link {
 	String resultsPath;
 	
 	
-	public Link() {
+	public Link(String COEPath,String MMPath) {
 		r = Runtime.getRuntime();
-		refreshFileSettings();
+		COEDirectory = new File(COEPath);
+		resultsPath = new File(DirectorySettings.oneShotResultsPath).getAbsolutePath();
+		MMJsonInFile = new File(MMPath);
+		reformatMMJSON();
 	}
 	
-	public void refreshFileSettings() {
-		COEDirectory = new File(DirectorySettings.COEPath);
-		resultsPath = new File(DirectorySettings.oneShotResultsPath).getAbsolutePath();
+	public void setCOEPath(String path) {
+		COEDirectory = new File(path);
+	}
+	
+	public void setResultsPath(String path) {
+		resultsPath = new File(path).getAbsolutePath();
+	}
+	
+	public void setMMPath(String path) {
+		MMJsonInFile = new File(path);
 		reformatMMJSON();
 	}
 	
@@ -65,7 +75,6 @@ public class Link {
 	private void reformatMMJSON() {
 		MMJsonOutFile = new File("mo4iMMjson.json");
 		parser = new JSONParser();
-		MMJsonInFile = new File(DirectorySettings.MMJsonPath);
 		try {
 			MMJson = (JSONObject) parser.parse(new FileReader(MMJsonInFile));
 		}catch(ParseException e) {

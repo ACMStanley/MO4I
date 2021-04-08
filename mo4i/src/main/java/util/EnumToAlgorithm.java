@@ -1,6 +1,6 @@
 package util;
 
-import algorithms.AllAlgorithms;
+import algorithms.AlgorithmVariant;
 import algorithms.IBEA;
 import algorithms.ABYSS;
 import algorithms.MO4IAlgorithm;
@@ -11,7 +11,7 @@ import algorithms.SMPSO;
 import algorithms.SPEA2;
 
 public class EnumToAlgorithm {
-	public static MO4IAlgorithm enumToAlgorithm(AllAlgorithms algorithm) {
+	public static MO4IAlgorithm enumToAlgorithm(AlgorithmVariant algorithm) {
 		switch(algorithm) {
 			case NSGAII:
 				return new NSGAII();

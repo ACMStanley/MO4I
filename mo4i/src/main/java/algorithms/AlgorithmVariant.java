@@ -1,6 +1,6 @@
 package algorithms;
 
-public enum AllAlgorithms {
+public enum AlgorithmVariant {
 	NSGAII,
 	SPEA2,
 	SMPSO,

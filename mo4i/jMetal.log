@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2021-04-05T12:02:18.368615800Z</date>
-  <millis>1617624138368</millis>
-  <nanos>615800</nanos>
+  <date>2021-04-06T08:47:34.737876400Z</date>
+  <millis>1617698854737</millis>
+  <nanos>876400</nanos>
   <sequence>0</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>Loggers configured with null</message>
 </record>
 <record>
-  <date>2021-04-05T12:02:18.390525900Z</date>
-  <millis>1617624138390</millis>
-  <nanos>525900</nanos>
+  <date>2021-04-06T08:47:34.774777900Z</date>
+  <millis>1617698854774</millis>
+  <nanos>777900</nanos>
   <sequence>1</sequence>
   <logger>org.uma.jmetal.util.JMetalLogger</logger>
   <level>INFO</level>
@@ -25,3 +25,52 @@
   <thread>1</thread>
   <message>Number of cores: 8</message>
 </record>
+<record>
+  <date>2021-04-06T08:47:35.281430200Z</date>
+  <millis>1617698855281</millis>
+  <nanos>430200</nanos>
+  <sequence>2</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.example.multiobjective.nsgaii.ParallelNSGAIIRunner</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 496ms</message>
+</record>
+<record>
+  <date>2021-04-06T08:47:35.298384300Z</date>
+  <millis>1617698855298</millis>
+  <nanos>384300</nanos>
+  <sequence>3</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.AbstractAlgorithmRunner</class>
+  <method>printFinalSolutionSet</method>
+  <thread>1</thread>
+  <message>Random seed: 1617698854782</message>
+</record>
+<record>
+  <date>2021-04-06T08:47:35.298384300Z</date>
+  <millis>1617698855298</millis>
+  <nanos>384300</nanos>
+  <sequence>4</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.AbstractAlgorithmRunner</class>
+  <method>printFinalSolutionSet</method>
+  <thread>1</thread>
+  <message>Objectives values have been written to file FUN.tsv</message>
+</record>
+<record>
+  <date>2021-04-06T08:47:35.299382300Z</date>
+  <millis>1617698855299</millis>
+  <nanos>382300</nanos>
+  <sequence>5</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.AbstractAlgorithmRunner</class>
+  <method>printFinalSolutionSet</method>
+  <thread>1</thread>
+  <message>Variables values have been written to file VAR.tsv</message>
+</record>
+</log>
