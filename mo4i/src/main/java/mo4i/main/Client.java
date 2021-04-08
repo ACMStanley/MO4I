@@ -1,41 +1,19 @@
 package mo4i.main;
-
-
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.uma.jmetal.util.JMetalException;
-
-import Actions.Action;
-import UI.UIHandler;
-import UI.UIUtils;
 import algorithms.AlgorithmVariant;
 import link.Link;
 import problem.ProblemSettings;
-import util.ConfigWindow;
-import util.DirectorySettings;
-import util.SettingsWindow;
+
 
 public class Client{
-	private static boolean active;
 	private static RunHandler runHandler;
 	private static ProblemSettings problemSettings;
 	private static Link link;
@@ -54,25 +32,13 @@ public class Client{
 		if(args.length == 1) {
 			parseRunSettings(args[0]);
 		}
-		
-		else if(args.length == 0){
-			active = true;
-		}
-		
 		else {
-			
+			System.out.println("Usage: mo4i {mo4irun.json_PATH}");
 		}
 	}
 	
 	public static RunHandler getRunHandler() {
 		return runHandler;
-	}
-
-	public static void printHeader() {
-		System.out.println("=======================================");
-		UIUtils.printLogo();
-		System.out.println("Multi-objective Optimisation 4 INTOCPS");
-		System.out.println("\n=======================================");
 	}
 	
 	private static void parseRunSettings(String path) {
@@ -110,9 +76,5 @@ public class Client{
 		}
 		
 		problemSettings.setSimTime(((Number) runSettings.get("sim-length")).doubleValue());
-	}
-	
-	public static void quit() {
-		active = false;
 	}
 }
