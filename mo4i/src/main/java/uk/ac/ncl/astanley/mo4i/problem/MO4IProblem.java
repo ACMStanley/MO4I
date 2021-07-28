@@ -7,7 +7,8 @@ import java.util.List;
 
 import org.uma.jmetal.problem.doubleproblem.impl.AbstractDoubleProblem;
 import org.uma.jmetal.solution.doublesolution.DoubleSolution;
-import main.Client;
+
+import uk.ac.ncl.astanley.mo4i.main.Client;
 
 @SuppressWarnings("serial")
 public class MO4IProblem extends AbstractDoubleProblem{

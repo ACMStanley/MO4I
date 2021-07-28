@@ -1,4 +1,4 @@
-package main;
+package uk.ac.ncl.astanley.mo4i.main;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -38,25 +38,31 @@ public class Client{
 		
 		parser = new JSONParser();
 		runHandler = new RunHandler();
-		try {
-			outputRun = new FileWriter("AllSolution.csv");
-		} catch (IOException e) {
-			throw new UncheckedIOException(e);
-		}
+		
 		
 		if(args.length == 1) {
+			
+			try {
+				outputRun = new FileWriter("AllSolution.csv");
+			} catch (IOException e) {
+				throw new UncheckedIOException(e);
+			}
+			
 			parseRunSettings(args[0]);
 			runHandler.run();
+			
+			try {
+				outputRun.close();
+			} catch (IOException e) {
+				throw new UncheckedIOException(e);
+			}
+			
 		}
 		else {
 			System.out.println("Usage: mo4i {JSON_PATH}");
 		}
 		
-		try {
-			outputRun.close();
-		} catch (IOException e) {
-			throw new UncheckedIOException(e);
-		}
+		
 	}
 	
 	public static RunHandler getRunHandler() {

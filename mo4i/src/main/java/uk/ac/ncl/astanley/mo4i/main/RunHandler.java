@@ -1,4 +1,4 @@
-package main;
+package uk.ac.ncl.astanley.mo4i.main;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,21 +3,18 @@ import org.uma.jmetal.problem.Problem;
 import org.uma.jmetal.util.JMetalLogger;
 import org.uma.jmetal.util.evaluator.SolutionListEvaluator;
 
-import main.Client;
+import uk.ac.ncl.astanley.mo4i.main.Client;
 import uk.ac.ncl.astanley.mo4i.util.Constants;
 
 import java.io.File;
 import java.time.LocalDateTime;
 import java.util.List;
 
-/**
- * @author Antonio J. Nebro
- */
 @SuppressWarnings("serial")
 public class MO4IMultiThreadEvaluator<S> implements SolutionListEvaluator<S> {
 
   private final int numberOfThreads;
-
+  
   public MO4IMultiThreadEvaluator(int numberOfThreads) {
     if (numberOfThreads == 0) {
       this.numberOfThreads = Runtime.getRuntime().availableProcessors();
@@ -30,9 +27,10 @@ public class MO4IMultiThreadEvaluator<S> implements SolutionListEvaluator<S> {
 
   @Override
   public List<S> evaluate(List<S> solutionList, Problem<S> problem) {
-    
     String COEPath = Client.getCOEPath();
     File logFile = new File(COEPath + "/coe.log");
+    
+    //Delete COE log each time it approaches maximum size to avoid thread safety issues
     long maxSize = Constants.COE_LOG_ARCHIVE_CEILING;
     if(logFile.exists()) {
 		if(logFile.length() > maxSize) {

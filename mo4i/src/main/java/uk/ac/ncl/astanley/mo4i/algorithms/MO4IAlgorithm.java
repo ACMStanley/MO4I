@@ -14,8 +14,8 @@ import org.uma.jmetal.util.evaluator.impl.SequentialSolutionListEvaluator;
 import org.uma.jmetal.util.fileoutput.SolutionListOutput;
 import org.uma.jmetal.util.fileoutput.impl.DefaultFileOutputContext;
 
-import main.Client;
 import uk.ac.ncl.astanley.mo4i.evaluators.MO4IMultiThreadEvaluator;
+import uk.ac.ncl.astanley.mo4i.main.Client;
 import uk.ac.ncl.astanley.mo4i.problem.MO4IProblem;
 import uk.ac.ncl.astanley.mo4i.util.DirectorySettings;
 import uk.ac.ncl.astanley.mo4i.util.FrontAdjuster;

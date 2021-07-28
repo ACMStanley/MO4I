@@ -12,9 +12,6 @@ public class DirectorySettings {
 	
 	public static String COEPath = "C:\\Users\\aiden\\OneDrive\\Documents\\into-cps-projects\\install_downloads";
 	
-	public static String MMJsonPath =
-			"C:\\Users\\aiden\\OneDrive\\Documents\\University\\CPS\\Excercises\\CSC3322Exercise4-3\\CSC3322Exercise4\\linefollower\\Multi-Models\\lfr-non3d\\lfr-non3d-rep.mm.json";
-	
 	public static String oneShotResultsPath = "../temp/";
 	
 	public static String getFrontPath() {

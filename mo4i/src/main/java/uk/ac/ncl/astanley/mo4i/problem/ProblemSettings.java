@@ -5,16 +5,20 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import uk.ac.ncl.astanley.mo4i.link.Link;
-
+/*
+Author: Aiden Stanley
+Purpose: Defines a class that describes a
+*/
 public class ProblemSettings {
 	private Link link;
-	private List<Double> lowerVarLimits;
-	private List<Double> upperVarLimits;
-	private List<String> vars;
-	private List<Objective> objectives;
-	private double simTime;
-	private int maxEvals;
-	private int threads;
+	private List<Double> lowerVarLimits;	//lower bound of each parameter to be varied when optimising the multi-model.
+	private List<Double> upperVarLimits;	//upper bounds.
+	private List<String> vars;				//list that defines the names of the parameters to be varied to optimise the multi-model.
+	private List<Objective> objectives;		//list of optimisation objectives.
+	private double simTime;					//how much time each simulation should capture.
+	private int maxEvals;					//maximum number of evaluations the algorithm should complete.
+	private int threads;					//the number of threads and therefore the number of configurations that should be simulated and
+											//evaluated simultaneously.
 	
 	public int getMaxEvals() {
 		return maxEvals;
@@ -113,6 +117,8 @@ public class ProblemSettings {
 		return this;
 	}
 	
+	//set whether an objective should be considered a maximisation or a minimisation
+	//objective
 	public ProblemSettings setToMaximiseObjective(int index, boolean maximise){
 		if(index >= getNumberOfObjectives() || index < 0) {
 			throw new NullPointerException("Index is out of bounds!");
@@ -131,7 +137,7 @@ public class ProblemSettings {
 	
 	public double[] calculateObjective(List<Double> values){
 		if(values.size() != getNumberOfVars()) {
-			throw new IllegalArgumentException("List of values must be same size as number fo variables!");
+			throw new IllegalArgumentException("List of values must be same size as number of variables!");
 		}
 		
 		for(int i = 0; i < getNumberOfVars(); i++) {
