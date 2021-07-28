@@ -19,7 +19,10 @@ import uk.ac.ncl.astanley.mo4i.main.Client;
 import uk.ac.ncl.astanley.mo4i.problem.MO4IProblem;
 import uk.ac.ncl.astanley.mo4i.util.DirectorySettings;
 import uk.ac.ncl.astanley.mo4i.util.FrontAdjuster;
-
+/*
+Author: Aiden Stanley
+Purpose: An abstract class to define the structure and defaults of multi-objective optimisation algorithms within the MO4I application
+*/
 public abstract class MO4IAlgorithm {
 
 	protected MO4IProblem problem;
@@ -38,13 +41,16 @@ public abstract class MO4IAlgorithm {
 	protected double mutationProbability;
 
 	protected abstract void runAlgorithm();
-
+	
+	//runs the derived algorithm
+	//declared final to ensure this function is called through the base class
 	public final void run() {
 		this.problem = new MO4IProblem();
 		mutationProbability = 1.0 / problem.getNumberOfVariables();
 		populationSize = 10 * problem.getNumberOfVariables();
 		int threadCount = Client.getProblemSettings().getThreadCount();
 		
+		//choose an evaluator based on the number of threads chosen
 		if(threadCount == 1) {
 			evaluator = new SequentialSolutionListEvaluator<DoubleSolution>();
 		}
@@ -52,6 +58,7 @@ public abstract class MO4IAlgorithm {
 			evaluator = new MO4IMultiThreadEvaluator<DoubleSolution>(threadCount - 1);
 		}
 		
+		//run the algorithm
 		long startTime = System.currentTimeMillis();
 		runAlgorithm();
 		long endTime = System.currentTimeMillis();
@@ -60,7 +67,8 @@ public abstract class MO4IAlgorithm {
 		FrontAdjuster.flipFront(Client.getProblemSettings().getMinMax());
 		
 	}
-
+	
+	//writes the optimisation results to file
 	public void printFinalSolutionSet(List<? extends Solution<?>> population) {
 		new SolutionListOutput(population)
 				.setVarFileOutputContext(new DefaultFileOutputContext(DirectorySettings.getVariablesPath(), ","))
