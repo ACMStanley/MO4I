@@ -7,6 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/*
+Author: Aiden Stanley
+Purpose: Static utility class that provides the functionality of 'flipping' the Pareto front in the output file 'FUN.csv'.
+			Flipping the Pareto front after processing is a shortcut to switching between maximise and minimise optimisation
+*/
+
 public class FrontAdjuster {
 	public static double[][] flipFront(List<Boolean> maximiseObjective) {
 		File FUNFile = new File(DirectorySettings.getFrontPath());
@@ -15,6 +21,7 @@ public class FrontAdjuster {
 		try {
 			FUNScanner = new Scanner(FUNFile);
 		} catch (FileNotFoundException e) {
+			System.out.println("Could not read output to flip pareto front as the output file is missing!");
 			e.printStackTrace();
 		}
 		
@@ -33,6 +40,7 @@ public class FrontAdjuster {
 		try {
 			writer = new PrintWriter(FUNFile);
 		} catch (FileNotFoundException e) {
+			System.out.println("Problem occured when trying to write flipped Pareto front!");
 			e.printStackTrace();
 		}
 		

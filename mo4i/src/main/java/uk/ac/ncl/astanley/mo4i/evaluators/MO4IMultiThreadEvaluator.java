@@ -1,15 +1,16 @@
 package uk.ac.ncl.astanley.mo4i.evaluators;
-import org.uma.jmetal.problem.Problem;
-import org.uma.jmetal.util.JMetalLogger;
-import org.uma.jmetal.util.evaluator.SolutionListEvaluator;
 
+import org.uma.jmetal.problem.Problem;
+import org.uma.jmetal.util.evaluator.SolutionListEvaluator;
 import uk.ac.ncl.astanley.mo4i.main.Client;
 import uk.ac.ncl.astanley.mo4i.util.Constants;
-
 import java.io.File;
-import java.time.LocalDateTime;
 import java.util.List;
 
+/*
+Author: Aiden Stanley
+Purpose: Defines an evaluator that allows for Multi-Threaded evaluation of multi-model configurations
+*/
 @SuppressWarnings("serial")
 public class MO4IMultiThreadEvaluator<S> implements SolutionListEvaluator<S> {
 
@@ -30,7 +31,7 @@ public class MO4IMultiThreadEvaluator<S> implements SolutionListEvaluator<S> {
     String COEPath = Client.getCOEPath();
     File logFile = new File(COEPath + "/coe.log");
     
-    //Delete COE log each time it approaches maximum size to avoid thread safety issues
+    //Delete COE log each time it approaches maximum size, to avoid thread safety issues
     long maxSize = Constants.COE_LOG_ARCHIVE_CEILING;
     if(logFile.exists()) {
 		if(logFile.length() > maxSize) {

@@ -7,7 +7,7 @@ import java.util.List;
 import uk.ac.ncl.astanley.mo4i.link.Link;
 /*
 Author: Aiden Stanley
-Purpose: Defines a class that describes a
+Purpose: An object that defines the configuration and function of a multi-objective optimisation problem of a given multi-model
 */
 public class ProblemSettings {
 	private Link link;
@@ -135,6 +135,8 @@ public class ProblemSettings {
 		return out;
 	}
 	
+	//returns a list of objective values that are the product of running the multi-model with
+	//a given list of parameter values
 	public double[] calculateObjective(List<Double> values){
 		if(values.size() != getNumberOfVars()) {
 			throw new IllegalArgumentException("List of values must be same size as number of variables!");

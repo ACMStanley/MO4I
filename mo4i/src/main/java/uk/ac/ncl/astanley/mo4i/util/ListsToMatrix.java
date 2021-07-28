@@ -1,7 +1,10 @@
 package uk.ac.ncl.astanley.mo4i.util;
 
 import java.util.List;
-
+/*
+Author: Aiden Stanley
+Purpose: Static utility class that provides a single method that converts a list of lists of doubles into a 2D array of doubles
+*/
 public class ListsToMatrix {
 
 	public static double[][] listsToMatrix(List<List<Double>> lists){

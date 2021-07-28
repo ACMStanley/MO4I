@@ -10,6 +10,12 @@ import org.uma.jmetal.solution.doublesolution.DoubleSolution;
 
 import uk.ac.ncl.astanley.mo4i.main.Client;
 
+/*
+Author: Aiden Stanley
+Purpose: 	An extension of the 'Problem' class, used to encode a MO4I optimisation problem into a format compatible with
+			the JMetal library
+*/
+
 @SuppressWarnings("serial")
 public class MO4IProblem extends AbstractDoubleProblem{
 	public MO4IProblem() {
@@ -24,7 +30,6 @@ public class MO4IProblem extends AbstractDoubleProblem{
 	public void evaluate(DoubleSolution solution) {
 		long startTime = System.currentTimeMillis();
 		
-		//solution.setVariable(1,-solution.getVariable(0));
 		List<Double> variables = solution.getVariables();
 		
 		double[] objectives = Client.getProblemSettings().calculateObjective(variables);

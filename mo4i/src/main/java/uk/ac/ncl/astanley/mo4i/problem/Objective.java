@@ -2,6 +2,11 @@ package uk.ac.ncl.astanley.mo4i.problem;
 
 import java.util.Random;
 
+/*
+Author: Aiden Stanley
+Purpose: An abstract class to represent an objective in a MO4I Multi-Objective optimisation problem
+*/
+
 public abstract class Objective {
 	private boolean maximise;
 	private String id;

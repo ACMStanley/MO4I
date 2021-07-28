@@ -9,6 +9,13 @@ import java.util.Scanner;
 
 import uk.ac.ncl.astanley.mo4i.util.DirectorySettings;
 
+/*
+Author: Aiden Stanley
+Purpose: An class to represent an objective in a MO4I Multi-Objective optimisation problem.
+			In a parameter objective, the value of a variable in the multi-model's state after 
+			a simulation is considered the objective value.
+*/
+
 public class ParameterObjective extends Objective{
 
 	private String paramName;
